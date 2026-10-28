@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#240b18" />
+  <meta name="description" content="A playful secret quiz challenge." />
+  <title>Secret Quiz Challenge ✨</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <div class="sparkle sparkle-one" aria-hidden="true">✦</div>
+  <div class="sparkle sparkle-two" aria-hidden="true">✧</div>
+  <div class="sparkle-three" aria-hidden="true">✦</div>
+  <div class="sparkle-four" aria-hidden="true">✧</div>
+  <div class="sparkle-five" aria-hidden="true">⋆</div>
+  <div class="floaty cat" aria-hidden="true">🐱</div>
+  <div class="floaty mouse" aria-hidden="true">🐭</div>
+  <div class="floaty star" aria-hidden="true">⭐</div>
+  <div class="floaty-extra floaty-heart" aria-hidden="true">💖</div>
+  <div class="floaty-extra floaty-bear" aria-hidden="true">🧸</div>
+  <div class="floaty-extra floaty-blush" aria-hidden="true">🥰</div>
+  <div class="floaty-extra floaty-spark" aria-hidden="true">✨</div>
+
+  <main class="page-shell">
+    <section class="container" aria-labelledby="page-title">
+      <div class="topline"><span class="live-dot"></span> A LITTLE MYSTERY FOR YOU</div>
+      <div class="hero-icon" aria-hidden="true"><span>🎯</span></div>
+      <h1 id="page-title">Secret Quiz <span>Challenge</span></h1>
+      <p class="subtitle">Three tiny questions. One secret waiting to be unlocked.</p>
+
+      <div class="progress-wrap" aria-label="Quiz progress">
+        <div class="progress-meta"><span>Your mission</span><span id="progressText">0 of 3 answered</span></div>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+
+      <form id="quizForm" autocomplete="off">
+        <div class="question" style="--delay: 0ms">
+          <label for="q1"><span class="question-number">01</span><span>Nee ena paatha odaney or pacum pothu nee pandra visayam?</span><span class="question-emoji">🧠</span></label>
+          <input id="q1" name="q1" type="text" placeholder="Your answer..." aria-describedby="q1Clue" required />
+          <p id="q1Clue" class="answer-clue" aria-live="polite"></p>
+        </div>
+        <div class="question" style="--delay: 90ms">
+          <label for="q2"><span class="question-number">02</span><span>Gokul vechathu la unaku pudicatha Nickname?</span><span class="question-emoji">🗼</span></label>
+          <input id="q2" name="q2" type="text" placeholder="Your answer..." aria-describedby="q2Clue" required />
+          <p id="q2Clue" class="answer-clue" aria-live="polite"></p>
+        </div>
+        <div class="question" style="--delay: 180ms">
+          <label for="q3"><span class="question-number">03</span><span>Unaku Romba Pudicha oru Seiyal Gokul ku romba Pudikum?</span><span class="question-emoji">☁️</span></label>
+          <input id="q3" name="q3" type="text" placeholder="Your answer..." aria-describedby="q3Clue" required />
+          <p id="q3Clue" class="answer-clue" aria-live="polite"></p>
+        </div>
+        <button class="primary-button" type="submit"><span>Unlock the mystery</span><span class="button-icon">↗</span></button>
+      </form>
+
+      <div id="result" class="result" hidden>
+        <div class="vault-icon">🔓</div>
+        <h2>Secret vault unlocked!</h2>
+        <p>You made it through the challenge. Your surprise is ready.</p>
+        <a class="secret-link" href="https://www.instagram.com/reel/DeHYc6phg4y/?xtok=MXBkdXRnYWt3bGluag==" target="_blank" rel="noopener noreferrer">Open Secret Link <span>↗</span></a>
+        <p class="link-note">Tip: replace example.com in index.html with your real surprise link.</p>
+      </div>
+      <footer><span>MADE WITH</span> <span class="heart">♥</span> <span>AND A LITTLE MISCHIEF</span></footer>
+    </section>
+  </main>
+
+  <div id="securityModal" class="overlay" role="dialog" aria-modal="true" aria-labelledby="securityTitle" hidden>
+    <div class="dialog security-dialog">
+      <button class="close-button" type="button" data-close="securityModal" aria-label="Close dialog">×</button>
+      <div class="dialog-icon">🔐</div>
+      <p class="eyebrow">ONE LAST THING</p>
+      <h2 id="securityTitle">Final security check</h2>
+      <p class="dialog-copy">Gokul oda cute ahna nickname enna? 👀</p>
+      <form id="nicknameForm" autocomplete="off">
+        <input id="nicknameAnswer" name="nicknameAnswer" type="text" placeholder="Enter the nickname..." required />
+        <p id="nicknameClue" class="clue" aria-live="polite"></p>
+        <button class="primary-button" type="submit"><span>Verify identity</span><span class="button-icon">✓</span></button>
+      </form>
+    </div>
+  </div>
+
+  <div id="popup" class="overlay" role="alertdialog" aria-modal="true" aria-labelledby="popupText" hidden>
+    <div class="dialog popupBox">
+      <div id="popupIcon" class="dialog-icon">✨</div>
+      <h2 id="popupText">Message</h2>
+      <p id="popupSubtext" class="dialog-copy"></p>
+      <button id="popupOk" class="primary-button" type="button"><span>Okay, got it</span><span class="button-icon">♥</span></button>
+    </div>
+  </div>
+  <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+</body>
+</html>
